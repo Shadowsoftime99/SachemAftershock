@@ -19,7 +19,7 @@ public class Robot extends SampleRobot {
         
         server2 = CameraServer.getInstance();
         server2.setQuality(50);
-        server2.startAutomaticCapture("cam2");
+        server2.startAutomaticCapture("cam1");
     }
 
  
