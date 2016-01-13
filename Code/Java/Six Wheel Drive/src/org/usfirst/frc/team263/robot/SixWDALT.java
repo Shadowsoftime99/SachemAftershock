@@ -1,66 +1,71 @@
 package org.usfirst.frc.team263.robot;
 
-import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.Joystick;
 
-public class SixWDALT {
-	private Talon leftFront, leftBack, rightFront, rightBack;
-	private int RIGHT_ANALOG = 4;
-	private int LEFT_ANALOG = 1;
-	private int LEFT_TRIGGER = 2;
-	private int RIGHT_TRIGGER = 3;
-	private boolean linear = false;
-	private double leftSpeed = 0, rightSpeed = 0;
+public class SixWD {
+  private Talon LeftSide,LeftSide2,RightSide,RightSide2;
+	public SixWD()
+	{
+		LeftSide = new Talon(1);
+		LeftSide2 = new Talon(3);
+		RightSide = new Talon(2);
+		RightSide2 = new Talon(0);
+		
+		LeftSide.set(0);
+		RightSide.set(0);
+	}
+	
+	public void Drive(Joystick drivePad)
+	{
+		double LeftSpeed = drivePad.getRawAxis(1) * -1;
+		double RightSpeed = drivePad.getRawAxis(3);
 
-	public SixWDALT() {
-		leftFront = new Talon(1);
-		leftBack = new Talon(3);
-		rightFront = new Talon(2);
-		rightBack = new Talon(0);
+		//float LeftSpeed = drivePad->GetRawAxis(1);
+		//float RightSpeed = drivePad->GetRawAxis(3) * -1; //This is assuming you have a
+		//logitech controller with 2 analog sticks, one stick for each side.
 
-		leftFront.set(0);
-		rightFront.set(0);
+		if(fabs(LeftSpeed) < 0.2){
+			LeftSpeed = 0;
+		}
+		if(fabs(RightSpeed) <0.2){//sets deadband values so you have to move the
+			RightSpeed = 0;// analog stick to a value higher than 0.2/-0.2 for the robot to move.
+		}
+
+		LeftSide.set(LeftSpeed);
+		LeftSide2.set(LeftSpeed);
+		RightSide.set(RightSpeed);
+		RightSide2.set(RightSpeed); 	
 	}
 
-	public void Drive(Joystick drivepad) {
-		if (Math.abs(drivepad.getRawAxis(LEFT_ANALOG)) > 0.1) {
-			double value = drivepad.getRawAxis(LEFT_ANALOG);
-			leftSpeed = -value;
-			rightSpeed = value;
-			linear = true;
-		} else {
-			linear = false;
+	private double fabs(double val) {
+		if(val < 0)
+		{
+			val = val * -1;
 		}
-
-		if (linear && Math.abs(drivepad.getRawAxis(RIGHT_ANALOG)) > 0.1) {
-			if (drivepad.getRawAxis(RIGHT_ANALOG) > 0) {
-				leftSpeed -= Math.min(0.9, Math.abs(drivepad.getRawAxis(RIGHT_ANALOG)));
-			} else if (drivepad.getRawAxis(RIGHT_ANALOG) < 0) {
-				rightSpeed -= Math.min(0.9, Math.abs(drivepad.getRawAxis(RIGHT_ANALOG)));
-			}
-		} else if (Math.abs(drivepad.getRawAxis(RIGHT_ANALOG)) > 0.1) {
-			if (drivepad.getRawAxis(RIGHT_ANALOG) > 0) {
-				leftSpeed = Math.abs(drivepad.getRawAxis(RIGHT_ANALOG));
-			} else {
-				rightSpeed = Math.abs(drivepad.getRawAxis(RIGHT_ANALOG));
-			}
-		}
-
-		if (!linear && Math.abs(drivepad.getRawAxis(RIGHT_ANALOG)) <= 0.1) {
-			if (drivepad.getRawAxis(LEFT_TRIGGER) > 0.1) {
-				leftSpeed = -drivepad.getRawAxis(LEFT_TRIGGER);
-				rightSpeed = -drivepad.getRawAxis(LEFT_TRIGGER);
-			} else if (drivepad.getRawAxis(RIGHT_TRIGGER) > 0.1) {
-				leftSpeed = drivepad.getRawAxis(RIGHT_TRIGGER);
-				rightSpeed = drivepad.getRawAxis(RIGHT_TRIGGER);
-			} else {
-				leftSpeed = 0;
-				rightSpeed = 0;
-			}
-		}
-		leftFront.set(leftSpeed);
-		leftBack.set(leftSpeed);
-		rightFront.set(rightSpeed);
-		rightBack.set(rightSpeed);
+		return val;
 	}
+	
+	
 }
+
+
+
+/*
+	float LeftSpeed = drivePad->GetRawAxis(1) * -1;
+	float RightSpeed = drivePad->GetRawAxis(3);
+	//float LeftSpeed = drivePad->GetRawAxis(1);
+	//float RightSpeed = drivePad->GetRawAxis(3) * -1; //This is assuming you have a
+	//logitech controller with 2 analog sticks, one stick for each side.
+	if(fabs(LeftSpeed) < 0.2){
+		LeftSpeed = 0;
+	}
+	if(fabs(RightSpeed) <0.2){//sets deadband values so you have to move the
+		RightSpeed = 0;// analog stick to a value higher than 0.2/-0.2 for the robot to move.
+	}
+	LeftSide->Set(LeftSpeed);
+	LeftSide2->Set(LeftSpeed);
+	RightSide->Set(RightSpeed);
+	RightSide2->Set(RightSpeed); 	
+}
+ */
