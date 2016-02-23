@@ -3,13 +3,15 @@ package org.usfirst.frc.team263.robot;
 
 import org.usfirst.frc.team263.robot.LedStrip.Colors;
 
-import edu.wpi.first.wpilibj.CANTalon;
+import edu.wpi.first.wpilibj.CameraServer;
+import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.DriverStation.Alliance;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.SampleRobot;
-import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.Timer;
 
 public class Robot extends SampleRobot {
+	CameraServer cameraS;
 	Joystick drivePad;
 	Joystick gamePad;
 	DriveControls drive;
@@ -17,7 +19,7 @@ public class Robot extends SampleRobot {
 	ServoCam camera;
 	Recorder recorder;
 	Autonomous autonomous;
-
+	DriverStation ds;
 
 	public Robot() {
 		drivePad = new Joystick(0);
@@ -27,13 +29,27 @@ public class Robot extends SampleRobot {
 		recorder = new Recorder();
 		autonomous = new Autonomous();
 		camera = new ServoCam();
+		ds = DriverStation.getInstance();
 	}
 
 	public void robotInit() {
+		if (ds.getAlliance().equals(Alliance.Blue)) {
+			LedStrip.setColor(Colors.eBlue);
+		} else {
+			LedStrip.setColor(Colors.eRed);
+		}
+		cameraS = CameraServer.getInstance();
+		cameraS.startAutomaticCapture("cam1");
+		cameraS.setQuality(50);
+	}
+	
+	public void disabled() {
+		LedStrip.setColor(Colors.eOrange);
 	}
 
 	public void autonomous() {
 		if (isAutonomous() && isEnabled()) {
+			LedStrip.setColor(Colors.eGreen);
 			autonomous.detectPhase();
 			autonomous.autoDrive();
 		}
@@ -48,20 +64,13 @@ public class Robot extends SampleRobot {
 	}
 
 	public void test() {
-		/*
 		while (isTest() && isEnabled()) {
-			recorder.addDrive(drive.drive(drivePad, true));
-			recorder.addMech(mech.drive(true));
+			drive.drive(drivePad);
+			recorder.addDrive(drive.getMotors());
+			mech.drive();
+			recorder.addMech(mech.getMotor());
 			Timer.delay(0.1);
 		}
 		recorder.retrieveArrays();
-		*/
-		while (isTest() && isEnabled()) {
-			LedStrip.sendColor(0, 255, 255);
-			Timer.delay(1);
-			LedStrip.sendColor(255, 0, 0);
-			Timer.delay(1);
-			LedStrip.sendColor(100, 100, 100);
-		}
 	}
 }

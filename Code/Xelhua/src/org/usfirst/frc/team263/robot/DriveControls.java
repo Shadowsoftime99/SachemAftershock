@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.Talon;
  * @author Dan Waxman
  * @author Rohan Bapat
  * @since 2016-01-15
- * @version 1.75
+ * @version 1.8
  */
 public class DriveControls {
 	/*
@@ -27,6 +27,7 @@ public class DriveControls {
 	private int RIGHT_BUMPER = 6;
 	private boolean linear; // True when going forward -- used for turning
 	private double leftSpeed = 0, rightSpeed = 0;
+	private static Joystick dp;
 
 	public DriveControls() {
 		// Assign Talons correct ports
@@ -36,10 +37,10 @@ public class DriveControls {
 		rightBack = new CANTalon(5);
 		rightBack.enableBrakeMode(true);
 
-		leftFront.set(.75 * 0);
-		leftBack.set(.75 * 0);
-		rightFront.set(.75 * 0);
-		rightBack.set(.75 * 0);
+		leftFront.set(.8 * 0);
+		leftBack.set(.8 * 0);
+		rightFront.set(.8 * 0);
+		rightBack.set(.8 * 0);
 	}
 	
 	/**
@@ -54,85 +55,12 @@ public class DriveControls {
 		}
 	}
 	
-	/**
-	 * Specialized drive method which returns drive values for recording purposes
-	 * @param drivepad Joystick to control driving with
-	 * @param record If true, returns drive values; if false calls <code>drive(Joystick drivepad)</code>
-	 * @return Values used to drive the robot
-	 * @see void drive(Joystick drivepad)
-	 */
-	public double[] drive(Joystick drivepad, boolean record) {
-		if (record) {
-			if (drivepad.getRawButton(LEFT_BUMPER) && drivepad.getRawButton(RIGHT_BUMPER)) {
-				leftSpeed = drivepad.getRawAxis(LEFT_ANALOG_TANK);
-				rightSpeed = drivepad.getRawAxis(RIGHT_ANALOG_TANK);
-	
-				if (Math.abs(leftSpeed) < 0.1)
-					leftSpeed = 0;
-				if (Math.abs(rightSpeed) < 0.1)
-					rightSpeed = 0;
-	
-				if (leftSpeed == 0 && rightSpeed == 0) {
-					if (drivepad.getRawAxis(LEFT_TRIGGER) > 0.1) { 
-						leftSpeed = drivepad.getRawAxis(LEFT_TRIGGER);
-						rightSpeed = -drivepad.getRawAxis(LEFT_TRIGGER);
-					} else if (drivepad.getRawAxis(RIGHT_TRIGGER) > 0.1) { 
-						leftSpeed = -drivepad.getRawAxis(RIGHT_TRIGGER);
-						rightSpeed = drivepad.getRawAxis(RIGHT_TRIGGER);
-					}
-				}
-				leftFront.set(.75 * -leftSpeed);
-				leftBack.set(.75 * leftSpeed);
-				rightFront.set(.75 * -rightSpeed);
-				rightBack.set(.75 * rightSpeed);
-				return new double[] {leftSpeed, rightSpeed};
-			} else {
-				linear = Math.abs(drivepad.getRawAxis(LEFT_ANALOG)) > 0.1;
-				if (linear) {
-					double value = drivepad.getRawAxis(LEFT_ANALOG);
-					leftSpeed = value;
-					rightSpeed = value;
-				}
-	
-				if (linear && Math.abs(drivepad.getRawAxis(RIGHT_ANALOG)) > 0.1) {
-					if (drivepad.getRawAxis(RIGHT_ANALOG) > 0) {
-						rightSpeed /= (10 * drivepad.getRawAxis(RIGHT_ANALOG)); 
-					} else if (drivepad.getRawAxis(RIGHT_ANALOG) < 0) {
-						leftSpeed /= (10 * Math.abs(drivepad.getRawAxis(RIGHT_ANALOG))); 
-					}
-				} else if (Math.abs(drivepad.getRawAxis(RIGHT_ANALOG)) > 0.1) {
-					if (drivepad.getRawAxis(RIGHT_ANALOG) > 0) {
-						leftSpeed = -drivepad.getRawAxis(RIGHT_ANALOG);
-					} else {
-						rightSpeed = drivepad.getRawAxis(RIGHT_ANALOG);
-					}
-				}
-	
-				if (!linear && Math.abs(drivepad.getRawAxis(RIGHT_ANALOG)) <= 0.1) {
-					if (drivepad.getRawAxis(LEFT_TRIGGER) > 0.1) {
-						leftSpeed = drivepad.getRawAxis(LEFT_TRIGGER);
-						rightSpeed = -drivepad.getRawAxis(LEFT_TRIGGER);
-					} else if (drivepad.getRawAxis(RIGHT_TRIGGER) > 0.1) {
-						leftSpeed = -drivepad.getRawAxis(RIGHT_TRIGGER);
-						rightSpeed = drivepad.getRawAxis(RIGHT_TRIGGER);
-					} else { // Set motors to zero
-						leftSpeed = 0;
-						rightSpeed = 0;
-					}
-				}
-				leftFront.set(.75 * -leftSpeed);
-				leftBack.set(.75 * leftSpeed);
-				rightFront.set(.75 * -rightSpeed);
-				rightBack.set(.75 * rightSpeed);
-				return new double[] {leftSpeed, rightSpeed};
-			}
-		} else {
-			drive(drivepad);
-			return new double[] {0d, 0d};
-		}
-	} 
+	public double[] getMotors() {
+		return new double[] {leftFront.get(), leftBack.get(), rightFront.get(), rightBack.get()};
+	}
 	
 	private void tankDrive(Joystick drivepad) {
+		dp = drivepad;
 		leftSpeed = drivepad.getRawAxis(LEFT_ANALOG_TANK);
 		rightSpeed = drivepad.getRawAxis(RIGHT_ANALOG_TANK);
 
@@ -145,25 +73,25 @@ public class DriveControls {
 			if (drivepad.getRawAxis(LEFT_TRIGGER) > 0.1) { 
 				leftSpeed = drivepad.getRawAxis(LEFT_TRIGGER);
 				rightSpeed = -drivepad.getRawAxis(LEFT_TRIGGER);
-				leftFront.set(.75 * -leftSpeed);
-				rightFront.set(.75 * -rightSpeed);
-				leftBack.set(.75 * 0);
-				rightBack.set(.75 * 0);
+				leftFront.set(.8 * -leftSpeed);
+				rightFront.set(.8 * -rightSpeed);
+				leftBack.set(.8 * 0);
+				rightBack.set(.8 * 0);
 				return;
 			} else if (drivepad.getRawAxis(RIGHT_TRIGGER) > 0.1) { 
 				leftSpeed = -drivepad.getRawAxis(RIGHT_TRIGGER);
 				rightSpeed = drivepad.getRawAxis(RIGHT_TRIGGER);
-				leftFront.set(.75 * -leftSpeed);
-				rightFront.set(.75 * -rightSpeed);
-				leftBack.set(.75 * 0);
-				rightBack.set(.75 * 0);
+				leftFront.set(.8 * -leftSpeed);
+				rightFront.set(.8 * -rightSpeed);
+				leftBack.set(.8 * 0);
+				rightBack.set(.8 * 0);
 				return; 
 			}
 		}
-		leftFront.set(.75 * -leftSpeed);
-		leftBack.set(.75 * leftSpeed);
-		rightFront.set(.75 * -rightSpeed);
-		rightBack.set(.75 * rightSpeed);
+		leftFront.set(.8 * -leftSpeed);
+		leftBack.set(.8 * leftSpeed);
+		rightFront.set(.8 * -rightSpeed);
+		rightBack.set(.8 * rightSpeed);
 	}	
 	
 	private void arcadeDrive(Joystick drivepad) {
@@ -196,28 +124,28 @@ public class DriveControls {
 			} else if (drivepad.getRawAxis(LEFT_TRIGGER) > 0.1) {
 				leftSpeed = drivepad.getRawAxis(LEFT_TRIGGER);
 				rightSpeed = -drivepad.getRawAxis(LEFT_TRIGGER);
-				leftFront.set(.75 * -leftSpeed);
-				rightFront.set(.75 * -rightSpeed);
-				leftBack.set(.75 * 0);
-				rightBack.set(.75 * 0);
+				leftFront.set(.8 * -leftSpeed);
+				rightFront.set(.8 * -rightSpeed);
+				leftBack.set(.8 * 0);
+				rightBack.set(.8 * 0);
 				return;
 			} else if (drivepad.getRawAxis(RIGHT_TRIGGER) > 0.1) {
 				leftSpeed = -drivepad.getRawAxis(RIGHT_TRIGGER);
 				rightSpeed = drivepad.getRawAxis(RIGHT_TRIGGER);
-				leftFront.set(.75 * -leftSpeed);
-				rightFront.set(.75 * -rightSpeed);
-				leftBack.set(.75 * 0);
-				rightBack.set(.75 * 0);
+				leftFront.set(.8 * -leftSpeed);
+				rightFront.set(.8 * -rightSpeed);
+				leftBack.set(.8 * 0);
+				rightBack.set(.8 * 0);
 				return;
 			} else { // Set motors to zero
 				leftSpeed = 0;
 				rightSpeed = 0;
 			}
 		}
-		leftFront.set(.75 * -leftSpeed);
-		leftBack.set(.75 * leftSpeed);
-		rightFront.set(.75 * -rightSpeed);
-		rightBack.set(.75 * rightSpeed);
+		leftFront.set(.8 * -leftSpeed);
+		leftBack.set(.8 * leftSpeed);
+		rightFront.set(.8 * -rightSpeed);
+		rightBack.set(.8 * rightSpeed);
 	}
 	
 	public static Talon getLeftFront() {
@@ -234,5 +162,9 @@ public class DriveControls {
 	
 	public static CANTalon getRightBack() {
 		return rightBack;
+	}
+	
+	public static Joystick getStick() {
+		return dp;
 	}
 }

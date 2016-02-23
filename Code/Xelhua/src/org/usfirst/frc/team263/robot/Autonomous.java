@@ -1,8 +1,15 @@
 package org.usfirst.frc.team263.robot;
 
-import edu.wpi.first.wpilibj.AnalogInput;
+import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.Talon;
 
+/**
+ * Class to control autonomous phase
+ * @author Dan Waxman
+ * @version 1.3
+ * @since 2016-02-18
+ */
 public class Autonomous {
 	private DigitalInput ones;
 	private DigitalInput twos;
@@ -25,8 +32,32 @@ public class Autonomous {
 	}
 	
 	public void autoDrive() {
-		if (phase == 6) {
-			Presets.rockWall(DriveControls.getLeftFront(), DriveControls.getLeftBack(), DriveControls.getRightFront(), DriveControls.getRightBack());
+		Talon lf = DriveControls.getLeftFront();
+		Talon lb = DriveControls.getLeftBack();
+		Talon rf = DriveControls.getRightFront();
+		CANTalon rb = DriveControls.getRightBack();
+		CANTalon arm = MechanicalControls.getMotorInstance();
+		switch (phase) {
+		case 1:
+			Presets.drawBridge(lf, lb, rf, rb, arm);
+			break;
+		case 2:
+			Presets.portcullis(lf, lb, rf, rb, arm);
+			break;
+		case 3:
+			Presets.cheval(lf, lb, rf, rb, arm);
+			break;
+		case 4:
+			Presets.sallyPort(lf, lb, rf, rb, arm);
+			break;
+		case 5:
+			Presets.ramparts(lf, lb, rf, rb);
+			break;
+		case 6:
+			Presets.moat(lf, lb, rf, rb);
+			break;
+		case 7:
+			Presets.lowBar(lf, lb, rf, rb, arm);
 		}
 	}
 }

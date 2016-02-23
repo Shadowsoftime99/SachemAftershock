@@ -15,28 +15,48 @@ public class Presets {
 	private static final double RECORD_LENGTH = 0.1;
 	private static final int INTERRUPT_BUTTON = 8;
 	
-	private static final double[] portcullisL = {};
-	private static final double[] chevalL = {};
-	private static final double[] moatL = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.4140625, -.53125, -0.625, -0.8671875, -0.9765625, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -0.16206896551724137, -0.16206896551724137, -0.16206896551724137, -0.16206896551724137, -0.16206896551724137, -0.16206896551724137, -0.16206896551724137, -0.16206896551724137, -0.16206896551724137, -0.16206896551724137, -0.16206896551724137, -0.16206896551724137, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
-	private static final double[] rampartsL = {};
-	private static final double[] drawbridgeL = {};
-	private static final double[] sallyPortL = {};
-	private static final double[] rockWallL = {-.5, -.5, -.5, -.5, -.5, -.5, -.5, -.5, -.5, -.5, -.5, -.5, -.5, -.5, -.5, -.5, -.5, -.5, -.5, -.5};
-	private static final double[] roughTerrainL = {};
-	private static final double[] lowBarL = {};
-	private static final double[] portcullisR = {};
-	private static final double[] chevalR = {};
-	private static final double[] moatR = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.4140625, -.53125, -0.625, -0.8671875, -0.9765625, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -0.3671875, -0.609375, -0.953125, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -0.40625, 0.0, 0.0, 0.0, -0.4296875, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
-	private static final double[] rampartsR = {};
-	private static final double[] drawbridgeR = {};
-	private static final double[] sallyPortR = {};
-	private static final double[] rockWallR = {-.5, -.5, -.5, -.5, -.5, -.5, -.5, -.5, -.5, -.5, -.5, -.5, -.5, -.5, -.5, -.5, -.5, -.5, -.5, -.5};
-	private static final double[] roughTerrainR = {};
-	private static final double[] lowBarR = {};
-	private static final double[] portcullisMech = {};
-	private static final double[] chevalMech = {};
-	private static final double[] drawbridgeMech = {};
-	private static final double[] sallyPortMech = {};
+	private static double[] portcullisLF = {};
+	private static double[] portcullisLB = {};
+	private static double[] portcullisRF = {};
+	private static double[] portcullisRB = {};
+	private static double[] portcullisM = {};
+	private static double[] lowBarLF = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.1049618320610687, 0.12213740458015267, 0.1984732824427481, 0.22900763358778625, 0.3053435114503817, 0.34541984732824427, 0.38740458015267176, 0.3931297709923664, 0.3931297709923664, 0.3931297709923664, 0.3931297709923664, 0.3931297709923664, 0.37595419847328243, 0.36259541984732824, 0.3511450381679389, 0.3568702290076336, 0.36259541984732824, 0.3683206106870229, 0.3683206106870229, 0.3683206106870229, 0.3683206106870229, 0.0, 0.0, 0.0, 0.0, 0.0, -0.19540229885057472, -0.26053639846743293, -0.3716475095785441, -0.49616858237547895, -0.49616858237547895, -0.5498084291187739, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.3773946360153257, -0.7490421455938697, -0.7490421455938697, -0.7490421455938697, 0.0, 0.0, 0.0, 0.0, -0.7490421455938697, -0.2777777777777778, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.1049618320610687, 0.18702290076335878, 0.19274809160305342, 0.21755725190839695, 0.37595419847328243, 0.36259541984732824, 0.36259541984732824, 0.36259541984732824, 0.3568702290076336, 0.33969465648854963, 0.29961832061068705, 0.29961832061068705, 0.29961832061068705, 0.3053435114503817, 0.24618320610687022, 0.16412213740458015, 0.3110687022900763, 0.3816793893129771, 0.3816793893129771, 0.13549618320610687, 0.0, 0.0, 0.0, -0.7490421455938697, -0.7490421455938697, -0.7490421455938697, -0.7490421455938697, -0.7490421455938697, -0.7490421455938697, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.1297709923664122, 0.13549618320610687, 0.22900763358778625, 0.29389312977099236, 0.29961832061068705, 0.33969465648854963, 0.4446564885496183, 0.36259541984732824, 0.3683206106870229, 0.36259541984732824, 0.36259541984732824, 0.36259541984732824, 0.36259541984732824, 0.36259541984732824, 0.36259541984732824, 0.36259541984732824, 0.36259541984732824, 0.0, 0.0, -0.7490421455938697, -0.7490421455938697, -0.7490421455938697, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.09923664122137404, 0.29961832061068705, 0.29961832061068705, 0.32251908396946566, 0.46946564885496184, 0.45610687022900764, 0.45038167938931295, 0.45038167938931295, 0.45038167938931295, 0.45038167938931295, 0.45038167938931295, 0.45038167938931295, 0.4446564885496183, 0.4446564885496183, 0.4446564885496183, 0.4446564885496183, 0.4389312977099237, 0.4389312977099237, 0.4389312977099237, 0.4389312977099237, 0.4446564885496183, 0.49236641221374045, 0.49236641221374045, 0.25763358778625955, 0.0, 0.0, 0.0};
+	private static double[] lowBarLB = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.1053639846743295, -0.12260536398467432, -0.19923371647509577, -0.22796934865900384, -0.3045977011494253, -0.3448275862068966, -0.38697318007662834, -0.39272030651340994, -0.39272030651340994, -0.39272030651340994, -0.39272030651340994, -0.39272030651340994, -0.37547892720306514, -0.36398467432950193, -0.3524904214559387, -0.35823754789272033, -0.36398467432950193, -0.36973180076628354, -0.36973180076628354, -0.36973180076628354, -0.36973180076628354, 0.0, 0.0, 0.0, 0.0, 0.0, 0.1946564885496183, 0.2595419847328244, 0.37213740458015265, 0.4961832061068702, 0.4961832061068702, 0.549618320610687, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.37786259541984735, 0.75, 0.75, 0.75, 0.0, 0.0, 0.0, 0.0, 0.75, 0.2767175572519084, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.1053639846743295, -0.18773946360153257, -0.19348659003831417, -0.2164750957854406, -0.37547892720306514, -0.36398467432950193, -0.36398467432950193, -0.36398467432950193, -0.35823754789272033, -0.3390804597701149, -0.2988505747126437, -0.2988505747126437, -0.2988505747126437, -0.3045977011494253, -0.24521072796934865, -0.16475095785440613, -0.3103448275862069, -0.38122605363984674, -0.38122605363984674, -0.13409961685823754, 0.0, 0.0, 0.0, 0.75, 0.75, 0.75, 0.75, 0.75, 0.75, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.12835249042145594, -0.13409961685823754, -0.22796934865900384, -0.29310344827586204, -0.2988505747126437, -0.3390804597701149, -0.4444444444444444, -0.36398467432950193, -0.36973180076628354, -0.36398467432950193, -0.36398467432950193, -0.36398467432950193, -0.36398467432950193, -0.36398467432950193, -0.36398467432950193, -0.36398467432950193, -0.36398467432950193, 0.0, 0.0, 0.75, 0.75, 0.75, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.09961685823754789, -0.2988505747126437, -0.2988505747126437, -0.3218390804597701, -0.46934865900383144, -0.4578544061302682, -0.4521072796934866, -0.4521072796934866, -0.4521072796934866, -0.4521072796934866, -0.4521072796934866, -0.4521072796934866, -0.4444444444444444, -0.4444444444444444, -0.4444444444444444, -0.4444444444444444, -0.4386973180076628, -0.4386973180076628, -0.4386973180076628, -0.4386973180076628, -0.4444444444444444, -0.49233716475095785, -0.49233716475095785, -0.25862068965517243, 0.0, 0.0, 0.0};
+	private static double[] lowBarRF = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.1049618320610687, 0.12213740458015267, 0.1984732824427481, 0.22900763358778625, 0.3053435114503817, 0.34541984732824427, 0.38740458015267176, 0.3931297709923664, 0.3931297709923664, 0.3931297709923664, 0.3931297709923664, 0.3931297709923664, 0.37595419847328243, 0.36259541984732824, 0.3511450381679389, 0.3568702290076336, 0.36259541984732824, 0.3606870229007634, 0.3683206106870229, 0.3683206106870229, 0.3683206106870229, 0.0, 0.0, 0.0, 0.0, 0.0, -0.19540229885057472, -0.26053639846743293, -0.3716475095785441, -0.49616858237547895, -0.49616858237547895, -0.5498084291187739, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.3773946360153257, -0.7490421455938697, -0.7490421455938697, -0.7490421455938697, 0.0, 0.0, 0.0, 0.0, -0.7490421455938697, -0.2777777777777778, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.1049618320610687, 0.18702290076335878, 0.19274809160305342, 0.21755725190839695, 0.37595419847328243, 0.36259541984732824, 0.36259541984732824, 0.36259541984732824, 0.3568702290076336, 0.33969465648854963, 0.29961832061068705, 0.29961832061068705, 0.29961832061068705, 0.3053435114503817, 0.24045801526717558, 0.16412213740458015, 0.3110687022900763, 0.3816793893129771, 0.3816793893129771, 0.13549618320610687, 0.0, 0.0, 0.0, -0.7490421455938697, -0.7490421455938697, -0.7490421455938697, -0.7490421455938697, -0.7490421455938697, -0.7490421455938697, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.1297709923664122, 0.13549618320610687, 0.22900763358778625, 0.29389312977099236, 0.29961832061068705, 0.33969465648854963, 0.4446564885496183, 0.36259541984732824, 0.3683206106870229, 0.36259541984732824, 0.36259541984732824, 0.36259541984732824, 0.36259541984732824, 0.36259541984732824, 0.36259541984732824, 0.36259541984732824, 0.36259541984732824, 0.0, 0.0, -0.7490421455938697, -0.7490421455938697, -0.7490421455938697, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.09923664122137404, 0.29961832061068705, 0.29961832061068705, 0.32251908396946566, 0.46946564885496184, 0.45610687022900764, 0.45038167938931295, 0.45038167938931295, 0.45038167938931295, 0.45038167938931295, 0.45038167938931295, 0.45038167938931295, 0.4446564885496183, 0.4446564885496183, 0.4446564885496183, 0.4446564885496183, 0.4389312977099237, 0.4389312977099237, 0.4389312977099237, 0.4389312977099237, 0.4446564885496183, 0.49236641221374045, 0.49236641221374045, 0.25763358778625955, 0.0, 0.0, 0.0};
+	private static double[] lowBarRB = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.10459433040078202, -0.12218963831867058, -0.198435972629521, -0.22776148582600195, -0.3040078201368524, -0.34506353861192574, -0.386119257086999, -0.3919843597262952, -0.3919843597262952, -0.3919843597262952, -0.3919843597262952, -0.3919843597262952, -0.37438905180840665, -0.3626588465298143, -0.3509286412512219, -0.3567937438905181, -0.3626588465298143, -0.3597262952101662, -0.36852394916911047, -0.36852394916911047, -0.36852394916911047, 0.0, 0.0, 0.0, 0.0, 0.0, 0.19452590420332355, 0.2590420332355816, 0.37145650048875856, 0.49560117302052786, 0.49560117302052786, 0.5483870967741935, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.37732160312805474, 0.7497556207233627, 0.7497556207233627, 0.7497556207233627, 0.0, 0.0, 0.0, 0.0, 0.7497556207233627, 0.27663734115347016, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.10459433040078202, -0.18670576735092864, -0.19257086999022482, -0.21603128054740958, -0.37438905180840665, -0.3626588465298143, -0.3626588465298143, -0.3626588465298143, -0.3567937438905181, -0.3391984359726295, -0.2981427174975562, -0.2981427174975562, -0.2981427174975562, -0.3040078201368524, -0.23949169110459434, -0.16324535679374388, -0.3098729227761486, -0.38025415444770283, -0.38025415444770283, -0.13391984359726294, 0.0, 0.0, 0.0, 0.7497556207233627, 0.7497556207233627, 0.7497556207233627, 0.7497556207233627, 0.7497556207233627, 0.7497556207233627, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.12805474095796676, -0.13391984359726294, -0.22776148582600195, -0.29227761485826004, -0.2981427174975562, -0.3391984359726295, -0.4447702834799609, -0.3626588465298143, -0.36852394916911047, -0.3626588465298143, -0.3626588465298143, -0.3626588465298143, -0.3626588465298143, -0.3626588465298143, -0.3626588465298143, -0.3626588465298143, -0.3626588465298143, 0.0, 0.0, 0.7497556207233627, 0.7497556207233627, 0.7497556207233627, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.09872922776148582, -0.2981427174975562, -0.2981427174975562, -0.32160312805474095, -0.4682306940371456, -0.45650048875855326, -0.4506353861192571, -0.4506353861192571, -0.4506353861192571, -0.4506353861192571, -0.4506353861192571, -0.4506353861192571, -0.4447702834799609, -0.4447702834799609, -0.4447702834799609, -0.4447702834799609, -0.4389051808406647, -0.4389051808406647, -0.4389051808406647, -0.4389051808406647, -0.4447702834799609, -0.4916911045943304, -0.4916911045943304, -0.2570869990224829, 0.0, 0.0};
+	private static double[] lowBarM = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+	private static double[] moatLF = {};
+	private static double[] moatLB = {};
+	private static double[] moatRF = {};
+	private static double[] moatRB = {};
+	private static double[] rockWallLF = {};
+	private static double[] rockWallLB = {};
+	private static double[] rockWallRF = {};
+	private static double[] rockWallRB = {};
+	private static double[] roughTerrainLF = {};
+	private static double[] roughTerrainLB = {};
+	private static double[] roughTerrainRF = {};
+	private static double[] roughTerrainRB = {};
+	private static double[] rampartsLF = {};
+	private static double[] rampartsLB = {};
+	private static double[] rampartsRF = {};
+	private static double[] rampartsRB = {};
+	private static double[] sallyPortLF = {};
+	private static double[] sallyPortLB = {};
+	private static double[] sallyPortRF = {};
+	private static double[] sallyPortRB = {};
+	private static double[] sallyPortM = {};
+	private static double[] chevalLF = {};
+	private static double[] chevalLB = {};
+	private static double[] chevalRF = {};
+	private static double[] chevalRB = {};
+	private static double[] chevalM = {};
+	private static double[] drawBridgeLF = {};
+	private static double[] drawBridgeLB = {};
+	private static double[] drawBridgeRF = {};
+	private static double[] drawBridgeRB = {};
+	private static double[] drawBridgeM = {};
+	
 	private static final Joystick interruptJS = new Joystick(0);
 	
 	/**
@@ -47,14 +67,14 @@ public class Presets {
 	 * @param rightBack Back right drivebase motor
 	 * @param arm Arm pivot
 	 */
-	public static void portcullis(Talon leftFront, CANTalon leftBack, Talon rightFront, Talon rightBack, Talon arm) {
-		for (int i = 0; i < Math.min(Math.min(portcullisL.length, portcullisR.length), portcullisMech.length); i++) {
+	public static void portcullis(Talon leftFront, Talon leftBack, Talon rightFront, CANTalon rightBack, CANTalon arm) {
+		for (int i = 0; i < Math.min(Math.min(portcullisLF.length, portcullisRF.length), portcullisM.length); i++) {
 			if (interruptJS.getRawButton(INTERRUPT_BUTTON)) break;
-			leftFront.set(-portcullisL[i]);
-			leftBack.set(portcullisL[i]);
-			rightFront.set(-portcullisR[i]);
-			rightBack.set(portcullisR[i]);
-			arm.set(portcullisMech[i]);
+			leftFront.set(portcullisLF[i]);
+			leftBack.set(portcullisLB[i]);
+			rightFront.set(portcullisRF[i]);
+			rightBack.set(portcullisRB[i]);
+			arm.set(portcullisM[i]);
 			Timer.delay(RECORD_LENGTH);
 		}
 		leftFront.set(0);
@@ -72,14 +92,14 @@ public class Presets {
 	 * @param rightBack Back right drivebase motor
 	 * @param arm Arm pivot
 	 */
-	public static void cheval(Talon leftFront, CANTalon leftBack, Talon rightFront, Talon rightBack, Talon arm) {
-		for (int i = 0; i < Math.min(Math.min(chevalL.length, chevalR.length), chevalMech.length); i++) {
+	public static void cheval(Talon leftFront, Talon leftBack, Talon rightFront, CANTalon rightBack, CANTalon arm) {
+		for (int i = 0; i < Math.min(Math.min(chevalLF.length, chevalRF.length), chevalM.length); i++) {
 			if (interruptJS.getRawButton(INTERRUPT_BUTTON)) break;
-			leftFront.set(-chevalL[i]);
-			leftBack.set(chevalL[i]);
-			rightFront.set(-chevalR[i]);
-			rightBack.set(chevalR[i]);
-			arm.set(chevalMech[i]);
+			leftFront.set(chevalLF[i]);
+			leftBack.set(chevalLB[i]);
+			rightFront.set(chevalRF[i]);
+			rightBack.set(chevalRB[i]);
+			arm.set(chevalM[i]);
 			Timer.delay(RECORD_LENGTH);
 		}
 		leftFront.set(0);
@@ -96,13 +116,13 @@ public class Presets {
 	 * @param rightFront Front right drivebase motor
 	 * @param leftBack Back left drivebase motor
 	 */
-	public static void moat(Talon leftFront, Talon rightBack, Talon rightFront, CANTalon leftBack) {
-		for (int i = 0; i < Math.min(moatL.length, moatR.length); i++) {
+	public static void moat(Talon leftFront, Talon leftBack, Talon rightFront, CANTalon rightBack) {
+		for (int i = 0; i < Math.min(moatLF.length, moatRF.length); i++) {
 			if (interruptJS.getRawButton(INTERRUPT_BUTTON)) break;
-			leftFront.set(-moatL[i]);
-			leftBack.set(moatL[i]);
-			rightFront.set(-moatR[i]);
-			rightBack.set(moatR[i]);
+			leftFront.set(moatLF[i]);
+			leftBack.set(moatLB[i]);
+			rightFront.set(moatRF[i]);
+			rightBack.set(moatRB[i]);
 			Timer.delay(RECORD_LENGTH);
 		}
 		leftFront.set(0);
@@ -118,13 +138,13 @@ public class Presets {
 	 * @param rightFront Front right drivebase motor
 	 * @param rightBack Back right drivebase motor
 	 */
-	public static void ramparts(Talon leftFront, CANTalon leftBack, Talon rightFront, Talon rightBack) {
-		for (int i = 0; i < Math.min(rampartsL.length, rampartsR.length); i++) {
+	public static void ramparts(Talon leftFront, Talon leftBack, Talon rightFront, CANTalon rightBack) {
+		for (int i = 0; i < Math.min(rampartsLF.length, rampartsRF.length); i++) {
 			if (interruptJS.getRawButton(INTERRUPT_BUTTON)) break;
-			leftFront.set(-rampartsL[i]);
-			leftBack.set(rampartsL[i]);
-			rightFront.set(-rampartsR[i]);
-			rightBack.set(rampartsR[i]);
+			leftFront.set(rampartsLF[i]);
+			leftBack.set(rampartsLB[i]);
+			rightFront.set(rampartsRF[i]);
+			rightBack.set(rampartsRB[i]);
 			Timer.delay(RECORD_LENGTH);
 		}
 		leftFront.set(0);
@@ -141,14 +161,14 @@ public class Presets {
 	 * @param rightBack Back right drivebase motor
 	 * @param arm Arm pivot
 	 */
-	public static void drawbridge(Talon leftFront, CANTalon leftBack, Talon rightFront, Talon rightBack, Talon arm) {
-		for (int i = 0; i < Math.min(Math.min(drawbridgeL.length, drawbridgeR.length), drawbridgeMech.length); i++) {
+	public static void drawBridge(Talon leftFront, Talon leftBack, Talon rightFront, CANTalon rightBack, CANTalon arm) {
+		for (int i = 0; i < Math.min(Math.min(drawBridgeLF.length, drawBridgeRF.length), drawBridgeM.length); i++) {
 			if (interruptJS.getRawButton(INTERRUPT_BUTTON)) break;
-			leftFront.set(-drawbridgeL[i]);
-			leftBack.set(drawbridgeL[i]);
-			rightFront.set(-drawbridgeR[i]);
-			rightBack.set(drawbridgeR[i]);
-			arm.set(drawbridgeMech[i]);
+			leftFront.set(drawBridgeLF[i]);
+			leftBack.set(drawBridgeLB[i]);
+			rightFront.set(drawBridgeRF[i]);
+			rightBack.set(drawBridgeRB[i]);
+			arm.set(drawBridgeM[i]);
 			Timer.delay(RECORD_LENGTH);
 		}
 		leftFront.set(0);
@@ -166,14 +186,14 @@ public class Presets {
 	 * @param rightBack Back right drivebase motor
 	 * @param arm Arm pivot
 	 */
-	public static void sallyPort(Talon leftFront, CANTalon leftBack, Talon rightFront, Talon rightBack, Talon arm) {
-		for (int i = 0; i < Math.min(Math.min(sallyPortL.length, sallyPortR.length), sallyPortMech.length); i++) {
+	public static void sallyPort(Talon leftFront, Talon leftBack, Talon rightFront, CANTalon rightBack, CANTalon arm) {
+		for (int i = 0; i < Math.min(Math.min(sallyPortLF.length, sallyPortRF.length), sallyPortM.length); i++) {
 			if (interruptJS.getRawButton(INTERRUPT_BUTTON)) break;
-			leftFront.set(-sallyPortL[i]);
-			leftBack.set(sallyPortL[i]);
-			rightFront.set(-sallyPortR[i]);
-			rightBack.set(sallyPortR[i]);
-			arm.set(sallyPortMech[i]);
+			leftFront.set(sallyPortLF[i]);
+			leftBack.set(sallyPortLB[i]);
+			rightFront.set(sallyPortRF[i]);
+			rightBack.set(sallyPortRB[i]);
+			arm.set(sallyPortM[i]);
 			Timer.delay(RECORD_LENGTH);
 		}
 		leftFront.set(0);
@@ -191,12 +211,12 @@ public class Presets {
 	 * @param rightBack Back right drivebase motor
 	 */
 	public static void rockWall(Talon leftFront, Talon leftBack, Talon rightFront, CANTalon rightBack) {
-		for (int i = 0; i < Math.min(rockWallL.length, rockWallR.length); i++) {
+		for (int i = 0; i < Math.min(rockWallLF.length, rockWallRF.length); i++) {
 			if (interruptJS.getRawButton(INTERRUPT_BUTTON)) break;
-			leftFront.set(-rockWallL[i]);
-			leftBack.set(rockWallL[i]);
-			rightFront.set(-rockWallR[i]);
-			rightBack.set(rockWallR[i]);
+			leftFront.set(rockWallLF[i]);
+			leftBack.set(rockWallLB[i]);
+			rightFront.set(rockWallRF[i]);
+			rightBack.set(rockWallRB[i]);
 			Timer.delay(RECORD_LENGTH);
 		}
 		leftFront.set(0);
@@ -212,13 +232,13 @@ public class Presets {
 	 * @param rightFront Front right drivebase motor
 	 * @param rightBack Back right drivebase motor
 	 */
-	public static void roughTerrain(Talon leftFront, CANTalon leftBack, Talon rightFront, Talon rightBack) {
-		for (int i = 0; i < Math.min(roughTerrainL.length, roughTerrainR.length); i++) {
+	public static void roughTerrain(Talon leftFront, Talon leftBack, Talon rightFront, CANTalon rightBack) {
+		for (int i = 0; i < Math.min(roughTerrainLF.length, roughTerrainRF.length); i++) {
 			if (interruptJS.getRawButton(INTERRUPT_BUTTON)) break;
-			leftFront.set(-roughTerrainL[i]);
-			leftBack.set(roughTerrainL[i]);
-			rightFront.set(-roughTerrainR[i]);
-			rightBack.set(roughTerrainR[i]);
+			leftFront.set(roughTerrainLF[i]);
+			leftBack.set(roughTerrainLB[i]);
+			rightFront.set(roughTerrainRF[i]);
+			rightBack.set(roughTerrainRB[i]);
 			Timer.delay(RECORD_LENGTH);
 		}
 		leftFront.set(0);
@@ -234,13 +254,14 @@ public class Presets {
 	 * @param rightFront Front right drivebase motor
 	 * @param rightBack Back right drivebase motor
 	 */
-	public static void lowBar(Talon leftFront, CANTalon leftBack, Talon rightFront, Talon rightBack) {
-		for (int i = 0; i < Math.min(lowBarL.length, lowBarR.length); i++) {
+	public static void lowBar(Talon leftFront, Talon leftBack, Talon rightFront, CANTalon rightBack, CANTalon arm) {
+		for (int i = 0; i < Math.min(lowBarLF.length, lowBarRF.length); i++) {
 			if (interruptJS.getRawButton(INTERRUPT_BUTTON)) break;
-			leftFront.set(-lowBarL[i]);
-			leftBack.set(lowBarL[i]);
-			rightFront.set(-lowBarR[i]);
-			rightBack.set(lowBarR[i]);
+			leftFront.set(lowBarLF[i]);
+			leftBack.set(lowBarLB[i]);
+			rightFront.set(lowBarRF[i]);
+			rightBack.set(lowBarRB[i]);
+			arm.set(lowBarM[i]);
 			Timer.delay(RECORD_LENGTH);
 		}
 		leftFront.set(0);

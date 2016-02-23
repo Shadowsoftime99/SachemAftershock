@@ -1,65 +1,101 @@
 package org.usfirst.frc.team263.robot;
 
+import java.util.ArrayList;
+
 import edu.wpi.first.wpilibj.I2C;
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.PWM;
-import edu.wpi.first.wpilibj.Timer;
 
+/**
+ * Class for communicating with arduino on i2c bus for LED communication
+ * @author Rohan Bapat
+ * @version 2.1
+ * @since 2015-12-15
+ */
 public class LedStrip {
 	private static final int i2cAddress_Arduino = 10;
 	static I2C i2c = new I2C(I2C.Port.kOnboard, i2cAddress_Arduino);
+	static ArrayList<int[]> ColorList = new ArrayList<>();
+	static boolean valuesLogged = false;
 
 	public static enum Colors {
 		eRed, eGreen, eBlue, ePink, ePurple, eOrange, eWhite, eTeal,
 	}
 
-	public static void sendColor(int red, int green, int blue) {
+	//send r,g,and b values to arduino
+	public static void setColor(int red, int green, int blue) {
 		int colors[] = new int[] { red, green, blue };
 		for (int i : colors) {
-			System.out.println("sendColor: " + i);
+			System.out.println("setColor: " + i);
 			byte byteArray[] = { (byte) i };
 			if (i2c.writeBulk(byteArray)) {
 				System.out.println("Sent Command: " + i + " : Did not work!\n");
 			} else {
 				System.out.println("Sent Command: " + i);
 			}
-			Timer.delay(0.15);
+			// Timer.delay(0.15);
 
 		}
 	}
-
+	
+	//sets specific color based on enum
 	public static void setColor(Colors colors) {
 		switch (colors) {
 		case eRed:
-			sendColor(255, 0, 0);
+			setColor(255, 0, 0);
 			break;
 		case eGreen:
-			sendColor(0, 255, 0);
+			setColor(0, 255, 0);
 			break;
 
 		case eBlue:
-			sendColor(0, 0, 255);
+			setColor(0, 0, 255);
 			break;
 
 		case ePink:
-			sendColor(255, 0, 255);
+			setColor(255, 0, 255);
 			break;
 
 		case ePurple:
-			sendColor(255, 0, 127);
+			setColor(255, 0, 127);
 			break;
 
 		case eOrange:
-			sendColor(255, 128, 0);
+			setColor(255, 20, 0);
 			break;
 
 		case eWhite:
-			sendColor(255, 255, 255);
+			setColor(255, 255, 255);
 			break;
 
 		case eTeal:
-			sendColor(0, 255, 255);
+			setColor(0, 255, 255);
 			break;
+		}
+	}
+
+	//controls LED's manually based on a joystick R-axis,L-axis, and L-trigger
+	//press A to log current color
+	public static void manualControl(Joystick drivePad) {
+		int red = (int) Math.abs(255 * drivePad.getRawAxis(1));
+		int green = (int) Math.abs(255 * drivePad.getRawAxis(5));
+		int blue = (int) Math.abs(255 * drivePad.getRawAxis(2));
+		if (drivePad.getRawButton(1)) {
+			int[] colorArray = new int[] { red, green, blue };
+			ColorList.add(colorArray);
+			System.out.println(red + " + " + green + " + " + blue);
+			valuesLogged = true;
+		}
+		setColor(red, green, blue);
+	}
+	//prints color logged in manualControl()
+	//use after the while(isEnabled() && isOperatorControl()/isAutonomous()/isTest()) loop
+	public static void logValues() {
+		if (valuesLogged) {
+			System.out.println("Printing Logged Values");
+			for (int x = 0; x < ColorList.size() - 1; x++) {
+				System.out.println("Log Number " + x + ": " + ColorList.get(x)[0] + " + " + ColorList.get(x)[1] + " + "
+						+ ColorList.get(x)[2]);
+			}
 		}
 	}
 }

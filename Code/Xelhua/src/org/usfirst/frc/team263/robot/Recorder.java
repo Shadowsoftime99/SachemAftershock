@@ -9,13 +9,14 @@ import java.util.ArrayList;
  * @version 1.0
  */
 public class Recorder {
-	private ArrayList<Double> leftSide;
-	private ArrayList<Double> rightSide;
+	private ArrayList<Double> leftFront, rightFront, leftBack, rightBack;
 	private ArrayList<Double> mech;
 	
 	public Recorder() {
-		leftSide = new ArrayList<Double>();
-		rightSide = new ArrayList<Double>();
+		leftFront = new ArrayList<Double>();
+		rightFront = new ArrayList<Double>();
+		leftBack = new ArrayList<Double>();
+		rightBack = new ArrayList<Double>();
 		mech = new ArrayList<Double>();
 	}
 	
@@ -24,11 +25,13 @@ public class Recorder {
 	 * @param controls {leftSpeed, rightSpeed}
 	 */
 	public void addDrive(double[] controls) {
-		if (controls.length != 2) {
-			throw new IllegalArgumentException("Recorder.addDrive(double[] controls) can only receive an array of length 2");
+		if (controls.length != 4) {
+			throw new IllegalArgumentException("Recorder.addDrive(double[] controls) can only receive an array of length 4");
 		}
-		leftSide.add(controls[0]);
-		rightSide.add(controls[1]);
+		leftFront.add(controls[0]);
+		leftBack.add(controls[1]);
+		rightFront.add(controls[2]);
+		rightBack.add(controls[3]);
 	}
 	
 	/**
@@ -43,8 +46,10 @@ public class Recorder {
 	 * Prints out arrays to screen
 	 */
 	public void retrieveArrays() {
-		System.out.println("Left side controls: " + leftSide.toString());
-		System.out.println("Right side controls: " + rightSide.toString());
+		System.out.println("Left front controls: " + leftFront.toString());
+		System.out.println("Left back controls: " + leftBack.toString());
+		System.out.println("Right front controls: " + rightFront.toString());
+		System.out.println("Right back controls: " + rightBack.toString());
 		System.out.println("Mechanical controls: " + mech.toString());
 	}
 }
