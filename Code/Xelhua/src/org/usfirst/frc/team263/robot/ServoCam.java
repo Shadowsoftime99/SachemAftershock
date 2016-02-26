@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.Timer;
 
 /**
+ * Controls camera
  * @author Greg Strakhov
  * @author Dan Waxman
  * @author Rohan Bapat
@@ -22,16 +23,29 @@ public class ServoCam {
 		park();
 	}
 	
+	/**
+	 * Sets camera in "safe" spot
+	 */
 	public void park() {
 		serElevation.setAngle(0);
 		serAzimuth.setAngle(180);
 	}
 	
+	/**
+	 * Sets angle given
+	 * @param elevation Desired elevation angle
+	 * @param azimuth Desired azimuth angle
+	 */
 	public void setAngle(int elevation, int azimuth) {
 		serElevation.setAngle(elevation);
 		serAzimuth.setAngle(azimuth);
 	}
 
+	/**
+	 * "Drives" servos using two joystick dpads
+	 * @param joy1 Joystick one to control servos
+	 * @param joy2 Joystick two to control servos
+	 */
 	public void RunServos(Joystick joy1, Joystick joy2) {
 		if (first) {
 			serElevation.setAngle(90);

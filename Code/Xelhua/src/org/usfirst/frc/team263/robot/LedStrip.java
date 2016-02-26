@@ -25,12 +25,9 @@ public class LedStrip {
 	public static void setColor(int red, int green, int blue) {
 		int colors[] = new int[] { red, green, blue };
 		for (int i : colors) {
-			System.out.println("setColor: " + i);
 			byte byteArray[] = { (byte) i };
 			if (i2c.writeBulk(byteArray)) {
-				System.out.println("Sent Command: " + i + " : Did not work!\n");
 			} else {
-				System.out.println("Sent Command: " + i);
 			}
 			// Timer.delay(0.15);
 
@@ -82,7 +79,6 @@ public class LedStrip {
 		if (drivePad.getRawButton(1)) {
 			int[] colorArray = new int[] { red, green, blue };
 			ColorList.add(colorArray);
-			System.out.println(red + " + " + green + " + " + blue);
 			valuesLogged = true;
 		}
 		setColor(red, green, blue);
@@ -91,10 +87,7 @@ public class LedStrip {
 	//use after the while(isEnabled() && isOperatorControl()/isAutonomous()/isTest()) loop
 	public static void logValues() {
 		if (valuesLogged) {
-			System.out.println("Printing Logged Values");
 			for (int x = 0; x < ColorList.size() - 1; x++) {
-				System.out.println("Log Number " + x + ": " + ColorList.get(x)[0] + " + " + ColorList.get(x)[1] + " + "
-						+ ColorList.get(x)[2]);
 			}
 		}
 	}

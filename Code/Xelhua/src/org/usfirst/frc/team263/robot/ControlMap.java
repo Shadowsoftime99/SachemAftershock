@@ -7,8 +7,11 @@ public class ControlMap {
 	// Trigger type is 'b' if button or 'a' if axes
 	public char TRIGGER_TYPE;
 
+	/**
+	 * Initializes values for controller
+	 * @param s Controller name. Use <code>Joystick.getName()</code>
+	 */
 	public ControlMap(String s) {
-		// Xbox controller controls
 		if (s.equals("Controller (Afterglow Gamepad for Xbox 360)")) {
 			LEFT_ANALOG_X = 0;
 			LEFT_ANALOG_Y = 1;

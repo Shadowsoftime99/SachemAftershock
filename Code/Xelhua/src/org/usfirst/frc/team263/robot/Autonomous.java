@@ -16,12 +16,19 @@ public class Autonomous {
 	private DigitalInput fours;
 	private int phase;
 	
+	/**
+	 * Allocates ports for DIO phase detection
+	 */
 	public Autonomous() {
 		ones = new DigitalInput(7);
 		twos = new DigitalInput(8);
 		fours = new DigitalInput(9);
 	}
 	
+	/**
+	 * Detects what autonomous routine to run.
+	 * This is done with 7 switches and a binary conversion circuit.
+	 */
 	public void detectPhase() {
 		int sum = 0;
 		if (!ones.get()) sum += 1;
@@ -31,6 +38,10 @@ public class Autonomous {
 		phase = sum;
 	}
 	
+	/**
+	 * Drives the autonomous phase selected.
+	 * Utilizes the <code>Presets</code> class.
+	 */
 	public void autoDrive() {
 		Talon lf = DriveControls.getLeftFront();
 		Talon lb = DriveControls.getLeftBack();

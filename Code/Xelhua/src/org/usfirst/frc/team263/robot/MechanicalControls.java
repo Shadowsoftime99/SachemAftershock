@@ -1,6 +1,5 @@
 package org.usfirst.frc.team263.robot;
 
-import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.AnalogPotentiometer;
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.DigitalInput;
@@ -32,12 +31,15 @@ public class MechanicalControls {
 	private boolean ballOutAlerted = true;
 	private Joystick gamepad;
 	private JoystickRumble JRumble;
-	private AnalogInput photoCircuit = new AnalogInput(3);
 	private boolean locked = false;
 	private boolean lsNotNotified = true;
 	private static AnalogPotentiometer pot;
 	private DriverStation ds;
 	
+	/**
+	 * Instantiates MechanicalControls class and allocates ports
+	 * @param stick Joystick to use for driving
+	 */
 	public MechanicalControls(Joystick stick) {
 		ds = DriverStation.getInstance();		
 		pot = new AnalogPotentiometer(0, 360);
@@ -51,11 +53,18 @@ public class MechanicalControls {
 		latch = new CANTalon(3);
 	}
 	
+	/**
+	 * Utilizes the winch, ball mechanism, and gives user feedback
+	 */
 	public void drive() {
+		// Makes the pivot go down at 40% speed
 		if (gamepad.getRawButton(A_BUTTON) && pot.get() < 240) {
 			ballGrabberPivot.set(-0.4);
-		} else if (gamepad.getRawButton(B_BUTTON) && pot.get() > 150) {
-			ballGrabberPivot.set(gamepad.getRawButton(7) ? 1.0 : 0.5);
+		} else if (gamepad.getRawButton(B_BUTTON) && ballGrabberLS.get()) {
+			// Makes the pivot go down at 50% speed
+			// Unless select, the "turbo button" is pressed
+			// Then it's 80%
+			ballGrabberPivot.set(gamepad.getRawButton(7) ? 0.8 : 0.5);
 		} else {
 			ballGrabberPivot.set(0.0);
 		}
@@ -66,20 +75,26 @@ public class MechanicalControls {
 		} else if (ballGrabberLS.get()) {
 			lsNotNotified = true;
 		}	
+		
+		// Ball shoots out if x is held
+		// Sucks in if Y is held
 		if (gamepad.getRawButton(X_BUTTON)) {
-			ballSpinner.set(locked ? 0.0 : -0.4);
+			ballSpinner.set(-1.0);
 		} else if (gamepad.getRawButton(Y_BUTTON)) {
-			ballSpinner.set(1.0);
+			ballSpinner.set(locked ? 0.0 : 0.4);
 		} else {
 			ballSpinner.set(0.0);
 		}
+		
+		// State mechanism for user feedback
+		// Rumbles twice if button is actuated for ball pickup
+		// Rumbles once after the button is no longer pressed
 		if(!button.get() && !ballInAlerted) {
 			JRumble = new JoystickRumble(gamepad, 2);
 			JRumble.start();
 			ballInAlerted = true;
 			ballOutAlerted = false;
 			locked = true;
-			System.out.println("Ball in: " + photoCircuit.getVoltage());
 		}
 		if (button.get() && !ballOutAlerted) {
 			JRumble = new JoystickRumble(gamepad, 1);
@@ -87,32 +102,46 @@ public class MechanicalControls {
 			ballOutAlerted = true;
 			ballInAlerted = false;
 			locked = false;
-			System.out.println("Ball out: " + photoCircuit.getVoltage());
 		}
 		
+		// "Safety button" for winch
+		// Start must be pressed before the winch deploys, otherwise it won't work.
 		if (gamepad.getRawButton(8)) {
 			latchB = true;
 		}
 		if (latchB) {
 			winch.set(gamepad.getRawAxis(1));
-			latch.set(gamepad.getRawAxis(5));
+			latch.set(gamepad.getRawAxis(5) * -1);
 		}
 		
 		LEDFeedback(ds.getMatchTime() < 25);
 	}
 	
+	/**
+	 * @return Ball grabber pivot speed
+	 */
 	public double getMotor() {
 		return ballGrabberPivot.get();
 	}
 	
+	/**
+	 * @return Ball grabber pivot instance
+	 */
 	public static CANTalon getMotorInstance() {
 		return ballGrabberPivot;
 	}
 	
+	/**
+	 * @return If the ball grabber pivot is in the "down" state
+	 */
 	public boolean isDown() {
 		return pot.get() > 200;
 	}
 	
+	/**
+	 * Feedback method written for interaction between robot and drivers via LED strip
+	 * @param end If there's 30 seconds or less in the game
+	 */
 	public void LEDFeedback(boolean end) {
 		if (!end) {
 			if (gamepad.getRawButton(X_BUTTON) && button.get()) {
@@ -143,7 +172,7 @@ public class MechanicalControls {
 				LedStrip.setColor(0, 0, 255); // pure blue
 			}
 			if (ds.getBatteryVoltage() < 8) {
-				LedStrip.setColor(139,69,19);
+				LedStrip.setColor(139,69,19); // brown out for potential brownout warnings
 			}
 		}
 	}

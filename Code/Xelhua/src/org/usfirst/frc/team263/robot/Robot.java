@@ -24,7 +24,7 @@ public class Robot extends SampleRobot {
 	public Robot() {
 		drivePad = new Joystick(0);
 		gamePad = new Joystick(1);
-		drive = new DriveControls();
+		drive = new DriveControls(drivePad);
 		mech = new MechanicalControls(gamePad);
 		recorder = new Recorder();
 		autonomous = new Autonomous();
@@ -39,7 +39,7 @@ public class Robot extends SampleRobot {
 			LedStrip.setColor(Colors.eRed);
 		}
 		cameraS = CameraServer.getInstance();
-		cameraS.startAutomaticCapture("cam1");
+		cameraS.startAutomaticCapture("cam4");
 		cameraS.setQuality(50);
 	}
 	
@@ -57,15 +57,16 @@ public class Robot extends SampleRobot {
 
 	public void operatorControl() {
 		while (isOperatorControl() && isEnabled()) {
-			drive.drive(drivePad); 
+			drive.drive(); 
 			mech.drive();
 			camera.RunServos(drivePad, gamePad);
 		}
+		LedStrip.setColor(Colors.eOrange);
 	}
 
 	public void test() {
 		while (isTest() && isEnabled()) {
-			drive.drive(drivePad);
+			drive.drive();
 			recorder.addDrive(drive.getMotors());
 			mech.drive();
 			recorder.addMech(mech.getMotor());
