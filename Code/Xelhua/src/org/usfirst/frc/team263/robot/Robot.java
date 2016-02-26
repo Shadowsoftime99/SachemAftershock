@@ -16,7 +16,6 @@ public class Robot extends SampleRobot {
 	Joystick gamePad;
 	DriveControls drive;
 	MechanicalControls mech;
-	ServoCam camera;
 	Recorder recorder;
 	Autonomous autonomous;
 	DriverStation ds;
@@ -28,7 +27,6 @@ public class Robot extends SampleRobot {
 		mech = new MechanicalControls(gamePad);
 		recorder = new Recorder();
 		autonomous = new Autonomous();
-		camera = new ServoCam();
 		ds = DriverStation.getInstance();
 	}
 
@@ -59,7 +57,6 @@ public class Robot extends SampleRobot {
 		while (isOperatorControl() && isEnabled()) {
 			drive.drive(); 
 			mech.drive();
-			camera.RunServos(drivePad, gamePad);
 		}
 		LedStrip.setColor(Colors.eOrange);
 	}
